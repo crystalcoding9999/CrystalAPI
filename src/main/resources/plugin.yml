@@ -1,0 +1,4 @@
+name: CrystalAPI
+version: '${project.version}'
+main: me.crystalcoding_.crystalapi.CrystalAPI
+api-version: '1.20'
