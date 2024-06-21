@@ -1,17 +1,21 @@
 package me.crystalcoding_.crystalapi;
 
+import me.crystalcoding_.crystalapi.Menu.GUIListener;
+import me.crystalcoding_.crystalapi.Menu.GUIManager;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class CrystalAPI extends JavaPlugin {
+public final class CrystalAPI {
+    GUIManager guiManager;
 
-    @Override
-    public void onEnable() {
-        // Plugin startup logic
+    public CrystalAPI(JavaPlugin plugin) {
+        guiManager = new GUIManager();
 
+        GUIListener listener = new GUIListener(guiManager);
+        Bukkit.getPluginManager().registerEvents(listener, plugin);
     }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
+    public GUIManager getGuiManager() {
+        return guiManager;
     }
 }
